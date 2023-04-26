@@ -1,8 +1,12 @@
-<h1>Hola {{ nombre }}</h1>
+<h1 class="saludo">Hola {{ nombre }}</h1>
 
-<h1>Contador: {{ contador }}</h1>
+<h1 class="contador">Contador: {{ contador }}</h1>
 
 <hr />
 
-<app-button-add></app-button-add>
-<app-button-dis></app-button-dis>
+<app-button-add
+  [contador]="contador"
+  (onAdd)="handleCount($event)"
+></app-button-add>
+<app-button-dis [contador]="contador" (onDis)="handleCount($event)">
+</app-button-dis>

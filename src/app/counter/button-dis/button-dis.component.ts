@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button-dis',
@@ -6,8 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./button-dis.component.css'],
 })
 export class ButtonDisComponent {
-  contador: number = 0;
+  @Input() contador: number = 0;
+  @Output() onDis: EventEmitter<number> = new EventEmitter();
   dis() {
     this.contador--;
+    this.onDis.emit(this.contador);
   }
 }
